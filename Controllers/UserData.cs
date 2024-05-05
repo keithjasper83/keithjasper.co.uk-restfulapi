@@ -41,6 +41,19 @@ public class UsersController : ControllerBase
         return Ok(users);
     }
 
+    [HttpDelete("{id}")]
+    public IActionResult DeleteUser(int id)
+    {
+        if (users.Remove(users.Find(u => u.Id == id)))
+        {
+            return Ok();
+        }
+        else
+        {
+            return NotFound();
+        }
+    }
+
     [HttpPost]
     public IActionResult AddUser(User user)
     {
