@@ -52,6 +52,8 @@ public class UsersController : ControllerBase
         else
         {
             Console.WriteLine("User found and deleting");
+            SaveDataToFile();
+
             return Ok();
         }
     }
