@@ -62,6 +62,7 @@ public class UsersController : ControllerBase
     public IActionResult AddUser(User user)
     {
         users.Add(user);
+        Console.WriteLine("User tried to be added");
         SaveDataToFile();
         return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
     }
