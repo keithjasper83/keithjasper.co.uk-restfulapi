@@ -1,0 +1,6 @@
+@keithjasper.co.uk_restfulapi_webapiProject_HostAddress = http://localhost:5129
+
+GET {{keithjasper.co.uk_restfulapi_webapiProject_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
