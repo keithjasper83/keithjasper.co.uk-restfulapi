@@ -44,13 +44,15 @@ public class UsersController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteUser(int id)
     {
-        if (users.Remove(users.Find(u => u.Id == id)))
+        if (!users.Remove(item: users.Find(u => u.Id == id)))
         {
-            return Ok();
+            Console.WriteLine("User not found");
+            return NotFound();
         }
         else
         {
-            return NotFound();
+            Console.WriteLine("User found and deleting");
+            return Ok();
         }
     }
 
