@@ -36,11 +36,14 @@ namespace keithjasper.co.uk_restfulapi.Controllers
             {
                 string json = System.IO.File.ReadAllText(dataFilePath);
                 users = JsonConvert.DeserializeObject<List<User>>(json);
-                nextId = users.Max(u => u.Id) + 1; // Get the next available ID
+                if (users.Any())
+                {
+                    nextId = users.Max(u => u.Id) + 1; // Get the next available ID
+                }
             }
             else
             {
-                users = new List<User>(); // Create a new list if the file doesn't exist
+                users = new List<User>();
             }
         }
 
